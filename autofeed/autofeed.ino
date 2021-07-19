@@ -67,11 +67,8 @@ void iniciaMaquinaEstados()
   proximo_estado_matrizTransicaoEstados[EM_OPERACAO][TEMPO_ATINGIDO] = LIBERANDO_RACAO;
   acao_matrizTransicaoEstados[EM_OPERACAO][TEMPO_ATINGIDO] = A05;
 
-  proximo_estado_matrizTransicaoEstados[EM_OPERACAO][TEMPO_NAO_ATINGIDO] = EM_OPERACAO;
-  acao_matrizTransicaoEstados[EM_OPERACAO][TEMPO_NAO_ATINGIDO] = A06;
-
   proximo_estado_matrizTransicaoEstados[LIBERANDO_RACAO][RACAO_LIBERADA] = EM_OPERACAO;
-  acao_matrizTransicaoEstados[LIBERANDO_RACAO][RACAO_LIBERADA] = A07;
+  acao_matrizTransicaoEstados[LIBERANDO_RACAO][RACAO_LIBERADA] = A06;
 
 } // iniciaMaquinaEstados
 
@@ -83,50 +80,72 @@ void iniciaSistema()
 
 int executarAcao(int codigoAcao, int estado)
 {
-    int retval;
+  int retval;
 
-    retval = NENHUM_EVENTO;
-    if (codigoAcao == NENHUMA_ACAO)
-        return retval;
-
-    switch(codigoAcao)
-    {
-    case A01:
-        if (estado == DEFINIR_TEMPO) {
-          StateVar.timeCounter += 1;
-        }
-        else {  // estado == DEFINIR_PORCOES
-          StateVar.timeCounter += 1;
-        }
-        break;
-    case A02:
-        if (estado == DEFINIR_TEMPO) {
-          StateVar.feedCounter -= 1;
-        }
-        else {  // estado == DEFINIR_PORCOES
-          StateVar.feedCounter -= 1;
-        }
-        break;
-    case A03:
-        StateVar.timeCounter = 0;
-        StateVar.feedCounter = 0;
-        break;
-    case A04:
-        tmr.begin();
-        buz.buzz(CONFIRMED);
-        break;
-    case A05:
-        ser.activate();
-        buz.buzz(SERVED);
-        break;
-    case A06:
-        break;
-    case A07:
-        break;
-    } // switch
-
+  retval = NENHUM_EVENTO;
+  if (codigoAcao == NENHUMA_ACAO)
     return retval;
+
+  switch(codigoAcao)
+  {
+  case A01:
+    if (estado == DEFINIR_TEMPO) {
+      StateVar.timeCounter += 1;
+    }
+    else {  // estado == DEFINIR_PORCOES
+      StateVar.timeCounter += 1;
+    }
+    break;
+  case A02:
+    if (estado == DEFINIR_TEMPO) {
+      StateVar.feedCounter -= 1;
+    }
+    else {  // estado == DEFINIR_PORCOES
+      StateVar.feedCounter -= 1;
+    }
+    break;
+  case A03:
+    StateVar.timeCounter = 0;
+    StateVar.feedCounter = 0;
+    break;
+  case A04:
+    if (estado == DEFINIR_PORCOES) {
+      tmr.begin();
+    }
+    buz.buzz(CONFIRMED);
+    break;
+  case A05:
+    ser.activate();
+    buz.buzz(SERVED);
+    break;
+  case A06:
+    tmr.begin();
+    break;
+  } // switch
+
+  return retval;
 } // executarAcao
+
+int obterEvento()
+{
+  int retval = NENHUM_EVENTO;
+
+  if (btn.getButton(PLUS_PIN))
+    return INCREMENTAR;
+  if (btn.getButton(MINUS_PIN))
+    return DECREMENTAR;
+  if (btn.getButton(ENTER_PIN))
+    return CONFIRMAR;
+  if (btn.getButton(REDEFINE_PIN))
+    return REDEFINIR
+  if (tmr.timeout())
+    return TEMPO_ATINGIDO;
+  if (decodificarDisparar())
+    return DISPARAR;
+
+  return retval;
+
+} // obterEvento
 
 
 int obterAcao(int estado, int codigoEvento) {

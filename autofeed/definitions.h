@@ -22,7 +22,6 @@
 #define CONFIRMAR           2
 #define REDEFINIR           3
 #define TEMPO_ATINGIDO      3
-#define TEMPO_NAO_ATINGIDO  3
 #define RACAO_LIBERADA      3
 // Acoes
 #define NENHUMA_ACAO -1
@@ -32,7 +31,6 @@
 #define A04  3
 #define A05  4
 #define A06  5
-#define A07  6
 
 
 // BUZZER
