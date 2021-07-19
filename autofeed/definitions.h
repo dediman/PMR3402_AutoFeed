@@ -2,8 +2,6 @@
 #define DEFINITIONS_H_INCLUDED
 
 // GENERAL
-#define HIGH 1
-#define LOW 0
 #define TRUE 1
 #define FALSE 0
 
