@@ -94,6 +94,8 @@ void iniciaSistema()
   pinMode(ECHO_PIN, INPUT);
   pinMode(SIGNAL_PIN, OUTPUT);
 
+  greenled.toggleLed();
+
 } // initSystem
 
 
@@ -183,8 +185,8 @@ void setup() {
 
   // inicializacao
   Serial.begin(9600);
-  iniciaSistema();
   Serial.println("Inicializando...");
+  iniciaSistema();
   lcd.setup();
   lcd.clear();
 
