@@ -17,6 +17,10 @@ Servomotor ser;
 Ultrassonic ult;
 
 // Variaveis Globais
+int codigoEvento = NENHUM_EVENTO;
+int eventoInterno = NENHUM_EVENTO;
+int estado = ESPERA;
+int codigoAcao;
 int acao_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 int proximo_estado_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 
@@ -131,17 +135,17 @@ int obterProximoEstado(int estado, int codigoEvento) {
 } // obterAcao
 
 
-
 void setup() {
-  
-  // comunicacoes
+
+  // inicializacao
   Serial.begin(9600);
+  iniciaSistema();
   Serial.println("Inicializando...");
   lcd.setup();
   lcd.clear();
 
   // mensagem inicial
-  Serial.println("Mensagem inicial...");
+  Serial.println("## BEM-VINDX ##");
   for (int i = 0; i <= 15; i++) {
     lcd.sendMessage(0, 0, "    AutoFeed");
     lcd.sendMessage(i, 1, "*");
@@ -156,6 +160,23 @@ void setup() {
 
 void loop() {
 
-  
+  if (eventoInterno == NENHUM_EVENTO) {
+      codigoEvento = obterEvento();
+  } else {
+      codigoEvento = eventoInterno;
+  }
+  if (codigoEvento != NENHUM_EVENTO)
+  {
+      codigoAcao = obterAcao(estado, codigoEvento);
+      estado = obterProximoEstado(estado, codigoEvento);
+      eventoInterno = executarAcao(codigoAcao);
+      Serial.print("Estado: ");
+      Serial.print(estado);
+      Serial.print(" Evento: ");
+      Serial.print(codigoEvento);
+      Serial.print(" Acao: ");
+      Serial.println(codigoAcao);
+  }
+
 
 }
