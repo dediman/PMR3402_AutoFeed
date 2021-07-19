@@ -4,7 +4,7 @@
 
 Button::Button(int pino) : pin(pino) {}
 
-void Button::getButton()
+bool Button::getButton()
 {
     return digitalRead(pin);
 }
