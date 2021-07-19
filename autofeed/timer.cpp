@@ -9,12 +9,12 @@ Timer::Timer() {}
 
 void Timer::begin()
 {
-    startTime = milis();
+    startTime = millis();
 }
 
 bool Timer::timeout()
 {
-    if (milis() - startTime > StateVar.timeCounter*TEMPO) {
+    if (millis() - startTime > StateVar.timeCounter*TEMPO) {
         return TRUE;
     }
     return FALSE;
