@@ -215,7 +215,7 @@ void loop() {
   {
       codigoAcao = obterAcao(estado, codigoEvento);
       estado = obterProximoEstado(estado, codigoEvento);
-      eventoInterno = executarAcao(codigoAcao);
+      eventoInterno = executarAcao(codigoAcao, estado);
       Serial.print("Estado: ");
       Serial.print(estado);
       Serial.print(" Evento: ");
