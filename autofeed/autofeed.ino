@@ -11,9 +11,13 @@
 
 // Instanciamento de Classes
 Buzzer buz;
-Button btn;
+Button btn1;
+Button btn2;
+Button btn3;
+Button btn4;
 Lcd lcd;
-Led led;
+Led redled;
+Led greenled;
 Servomotor ser;
 Timer tmr;
 Ultrassonic ult;
@@ -78,6 +82,18 @@ void iniciaMaquinaEstados()
 void iniciaSistema()
 {
   iniciaMaquinaEstados();
+
+  pinMode(BUZZER_PIN, OUTPUT);
+  pinMode(GREEN_LED_PIN, OUTPUT);
+  pinMode(RED_LED_PIN, OUTPUT);
+  pinMode(PLUS_PIN, INPUT);
+  pinMode(MINUS_PIN, INPUT);
+  pinMode(ENTER_PIN, INPUT);
+  pinMode(REDEFINE_PIN, INPUT);
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  pinMode(SIGNAL_PIN, OUTPUT);
+
 } // initSystem
 
 
