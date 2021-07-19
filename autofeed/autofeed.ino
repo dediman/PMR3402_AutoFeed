@@ -11,10 +11,10 @@
 
 // Instanciamento de Classes
 Buzzer buz;
-Button btn1;
-Button btn2;
-Button btn3;
-Button btn4;
+Button btn1(PLUS_PIN);
+Button btn2(MINUS_PIN);
+Button btn3(ENTER_PIN);
+Button btn4(REDEFINE_PIN);
 Lcd lcd;
 Led redled;
 Led greenled;
@@ -146,18 +146,18 @@ int obterEvento()
 {
   int retval = NENHUM_EVENTO;
 
-  if (btn.getButton(PLUS_PIN))
+  if (btn1.getButton())
     return INCREMENTAR;
-  if (btn.getButton(MINUS_PIN))
+  if (btn2.getButton())
     return DECREMENTAR;
-  if (btn.getButton(ENTER_PIN))
+  if (btn3.getButton())
     return CONFIRMAR;
-  if (btn.getButton(REDEFINE_PIN))
-    return REDEFINIR
+  if (btn4.getButton())
+    return REDEFINIR;
   if (tmr.timeout())
     return TEMPO_ATINGIDO;
-  if (decodificarDisparar())
-    return DISPARAR;
+  if (ult.getDistance() < DIST_BAIXO)
+    return NIVEL_BAIXO;
 
   return retval;
 

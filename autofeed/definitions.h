@@ -21,8 +21,9 @@
 #define DECREMENTAR         1
 #define CONFIRMAR           2
 #define REDEFINIR           3
-#define TEMPO_ATINGIDO      3
-#define RACAO_LIBERADA      3
+#define TEMPO_ATINGIDO      4
+#define RACAO_LIBERADA      5
+#define NIVEL_BAIXO         6
 // Acoes
 #define NENHUMA_ACAO -1
 #define A01  0
@@ -32,37 +33,37 @@
 #define A05  4
 #define A06  5
 
-
 // BUZZER
-#define BUZZER_PIN 14
-#define TURN_ON 0
-#define CONFIRMED 1
-#define SERVED 2
+#define BUZZER_PIN  14
+#define TURN_ON     0
+#define CONFIRMED   1
+#define SERVED      2
 
 // LED
-#define GREEN_LED_PIN 5
-#define RED_LED_PIN 6
+#define GREEN_LED_PIN   5
+#define RED_LED_PIN     6
 
 // LCD
-#define RS = 2
-#define EN = 3
-#define D4 = A2
-#define D5 = A3
-#define D6 = A4
-#define D7 = A5
+#define RS 2
+#define EN 3
+#define D4 A2
+#define D5 A3
+#define D6 A4
+#define D7 A5
 // Messages
 #define CHEIO "Cheio"
 #define VAZIO "Vazio"
 
 // BUTTONS
-#define PLUS_PIN 7
-#define MINUS_PIN 8
-#define ENTER_PIN 9
-#define REDEFINE_PIN 10
+#define PLUS_PIN        7
+#define MINUS_PIN       8
+#define ENTER_PIN       9
+#define REDEFINE_PIN    10
 
 // ULTRASSONIC
-#define TRIG_PIN 11
-#define ECHO_PIN 12
+#define TRIG_PIN    11
+#define ECHO_PIN    12
+#define DIST_BAIXO  20
 
 // SERVO
 #define SIGNAL_PIN 9

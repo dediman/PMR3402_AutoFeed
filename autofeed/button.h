@@ -5,8 +5,11 @@
 
 class Button: public Ihm {
   public:
-  Button();
-  bool getButton(int button);
+  Button(int pino);
+  bool getButton();
+
+  private:
+  int pin;
 };
 
 #endif // BUTTON_H_INCLUDED

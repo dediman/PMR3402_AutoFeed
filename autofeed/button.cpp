@@ -2,9 +2,9 @@
 
 #include "button.h"
 
-Button::Button() {}
+Button::Button(int pino) : pin(pino) {}
 
-void Button::getButton(int button)
+void Button::getButton()
 {
-    return digitalRead(button);
+    return digitalRead(pin);
 }
