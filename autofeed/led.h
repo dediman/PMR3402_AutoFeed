@@ -5,8 +5,11 @@
 
 class Led: public Sinalizacao {
   public:
-  Led();
-  void toggleLed(int led) = 0;
+  Led(int pino);
+  void toggleLed() = 0;
+
+  private:
+  int pin;
 };
 
 #endif // LED_H_INCLUDED

@@ -2,9 +2,9 @@
 
 #include "led.h"
 
-Led::Led() {}
+Led::Led(int pino) : pin(pino) {}
 
-void Led::toggleLed(int led)
+void Led::toggleLed()
 {
-   digitalWrite(led, !digitalRead(led));
+   digitalWrite(pin, !digitalRead(pin));
 }

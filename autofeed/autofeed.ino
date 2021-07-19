@@ -16,8 +16,8 @@ Button btn2(MINUS_PIN);
 Button btn3(ENTER_PIN);
 Button btn4(REDEFINE_PIN);
 Lcd lcd;
-Led redled;
-Led greenled;
+Led redled(RED_LED_PIN);
+Led greenled(GREEN_LED_PIN);
 Servomotor ser;
 Timer tmr;
 Ultrassonic ult;
@@ -70,6 +70,9 @@ void iniciaMaquinaEstados()
 
   proximo_estado_matrizTransicaoEstados[EM_OPERACAO][TEMPO_ATINGIDO] = LIBERANDO_RACAO;
   acao_matrizTransicaoEstados[EM_OPERACAO][TEMPO_ATINGIDO] = A05;
+
+  proximo_estado_matrizTransicaoEstados[EM_OPERACAO][NIVEL_BAIXO] = EM_OPERACAO;
+  acao_matrizTransicaoEstados[EM_OPERACAO][NIVEL_BAIXO] = A07;
 
   proximo_estado_matrizTransicaoEstados[LIBERANDO_RACAO][RACAO_LIBERADA] = EM_OPERACAO;
   acao_matrizTransicaoEstados[LIBERANDO_RACAO][RACAO_LIBERADA] = A06;
@@ -136,6 +139,9 @@ int executarAcao(int codigoAcao, int estado)
     break;
   case A06:
     tmr.begin();
+    break;
+  case A07:
+    redled.toggleLed();
     break;
   } // switch
 

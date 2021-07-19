@@ -3,7 +3,7 @@
 
 class Sinalizacao {
   public:
-  virtual void toggleLed(int led) = 0;
+  virtual void toggleLed() = 0;
   virtual void buzz(int type) = 0;
 };
 
