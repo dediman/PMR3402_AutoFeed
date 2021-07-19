@@ -41,8 +41,8 @@
 #define SERVED      2
 
 // LED
-#define GREEN_LED_PIN   5
-#define RED_LED_PIN     6
+#define GREEN_LED_PIN   12
+#define RED_LED_PIN     13
 
 // LCD
 #define RS 2
@@ -62,8 +62,8 @@
 #define REDEFINE_PIN    7
 
 // ULTRASSONIC
-#define TRIG_PIN    11
-#define ECHO_PIN    12
+#define TRIG_PIN    10
+#define ECHO_PIN    11
 #define DIST_BAIXO  20
 
 // SERVO
