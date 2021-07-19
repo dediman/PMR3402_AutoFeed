@@ -25,7 +25,7 @@ Ultrassonic ult;
 // Variaveis Globais
 int codigoEvento = NENHUM_EVENTO;
 int eventoInterno = NENHUM_EVENTO;
-int estado = ESPERA;
+int estado = DEFINIR_TEMPO;
 int codigoAcao;
 int acao_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 int proximo_estado_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
