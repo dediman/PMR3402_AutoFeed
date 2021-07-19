@@ -6,7 +6,8 @@
 class Led: public Sinalizacao {
   public:
   Led(int pino);
-  void toggleLed() = 0;
+  void toggleLed();
+  void buzz(int type);
 
   private:
   int pin;

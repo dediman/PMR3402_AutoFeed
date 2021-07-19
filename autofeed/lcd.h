@@ -9,6 +9,7 @@ class Lcd: public Ihm {
   void sendMessage(char col, char row, char message);
   void clear();
   void setup();
+  bool getButton();
 };
 
 #endif // LCD_H_INCLUDED

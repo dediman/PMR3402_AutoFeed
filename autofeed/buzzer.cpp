@@ -34,3 +34,5 @@ void Buzzer::buzz(int type)
         }
     }
 }
+
+void Buzzer::toggleLed() {}

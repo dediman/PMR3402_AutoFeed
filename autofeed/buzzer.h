@@ -6,7 +6,8 @@
 class Buzzer: public Sinalizacao {
   public:
   Buzzer();
-  void buzz(int type) = 0;
+  void buzz(int type);
+  void toggleLed();
 };
 
 #endif // BUZZER_H_INCLUDED

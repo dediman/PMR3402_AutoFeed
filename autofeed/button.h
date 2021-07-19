@@ -7,6 +7,9 @@ class Button: public Ihm {
   public:
   Button(int pino);
   bool getButton();
+  void sendMessage(char col, char row, char message);
+  void clear();
+  void setup();
 
   private:
   int pin;

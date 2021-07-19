@@ -23,3 +23,5 @@ void Lcd::setup()
 {
   lcd.begin(16, 2);
 }
+
+bool Lcd::getButton() {}

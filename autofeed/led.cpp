@@ -8,3 +8,5 @@ void Led::toggleLed()
 {
    digitalWrite(pin, !digitalRead(pin));
 }
+
+void Led::buzz(int type) {}
