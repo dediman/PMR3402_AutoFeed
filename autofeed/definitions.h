@@ -35,7 +35,7 @@
 #define A07  6
 
 // BUZZER
-#define BUZZER_PIN  14
+#define BUZZER_PIN  8
 #define TURN_ON     0
 #define CONFIRMED   1
 #define SERVED      2
@@ -56,10 +56,10 @@
 #define VAZIO "Vazio"
 
 // BUTTONS
-#define PLUS_PIN        7
-#define MINUS_PIN       8
-#define ENTER_PIN       9
-#define REDEFINE_PIN    10
+#define PLUS_PIN        4
+#define MINUS_PIN       5
+#define ENTER_PIN       6
+#define REDEFINE_PIN    7
 
 // ULTRASSONIC
 #define TRIG_PIN    11
