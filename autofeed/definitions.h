@@ -3,7 +3,9 @@
 
 // GENERAL
 #define HIGH 1
-#define LOW 0`
+#define LOW 0
+#define TRUE 1
+#define FALSE 0
 
 // MAQUINA DE ESTADOS
 #define NUM_ESTADOS 4

@@ -6,6 +6,7 @@
 #include "lcd.h"
 #include "led.h"
 #include "servomotor.h"
+#include "timer.h"
 #include "ultrassonic.h"
 
 // Instanciamento de Classes
@@ -14,6 +15,7 @@ Button btn;
 Lcd lcd;
 Led led;
 Servomotor ser;
+Timer tmr;
 Ultrassonic ult;
 
 // Variaveis Globais
@@ -24,7 +26,7 @@ int codigoAcao;
 int acao_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 int proximo_estado_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 
-typedef struct {
+extern typedef struct {
   int timeCounter; //armazena tempo inserido pelo usuario
   int feedCounter; //armazena numero de giros pelo usuario
 } StateVar;
@@ -110,6 +112,7 @@ int executarAcao(int codigoAcao, int estado)
         StateVar.feedCounter = 0;
         break;
     case A04:
+        tmr.begin();
         buz.buzz(CONFIRMED);
         break;
     case A05:
