@@ -75,6 +75,51 @@ void iniciaSistema()
 } // initSystem
 
 
+int executarAcao(int codigoAcao, int estado)
+{
+    int retval;
+
+    retval = NENHUM_EVENTO;
+    if (codigoAcao == NENHUMA_ACAO)
+        return retval;
+
+    switch(codigoAcao)
+    {
+    case A01:
+        if (estado == DEFINIR_TEMPO) {
+          StateVar.timeCounter += 1;
+        }
+        else {  // estado == DEFINIR_PORCOES
+          StateVar.timeCounter += 1;
+        }
+        break;
+    case A02:
+        if (estado == DEFINIR_TEMPO) {
+          StateVar.feedCounter -= 1;
+        }
+        else {  // estado == DEFINIR_PORCOES
+          StateVar.feedCounter -= 1;
+        }
+        break;
+    case A03:
+        StateVar.timeCounter = 0;
+        StateVar.feedCounter = 0;
+        break;
+    case A04:
+        buz.buzz(CONFIRMED);
+        break;
+    case A05:
+        ser.activate();
+        buz.buzz(SERVED);
+        break;
+    case A06:
+        break;
+    case A07:
+        break;
+    } // switch
+
+    return retval;
+} // executarAcao
 
 
 int obterAcao(int estado, int codigoEvento) {
