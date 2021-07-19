@@ -20,13 +20,18 @@ Ultrassonic ult;
 int acao_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 int proximo_estado_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 
+typedef struct {
+  int timeCounter; //armazena tempo inserido pelo usuario
+  int feedCounter; //armazena numero de giros pelo usuario
+} StateVar;
+
 // Maquina de Estados
 void iniciaMaquinaEstados()
 {
   for (int i = 0; i < NUM_ESTADOS; i++) {
     for (int j = 0; j < NUM_EVENTOS; j++) {
-       acao_matrizTransicaoEstados[i][j] = NENHUMA_ACAO;
-       proximo_estado_matrizTransicaoEstados[i][j] = i;
+      acao_matrizTransicaoEstados[i][j] = NENHUMA_ACAO;
+      proximo_estado_matrizTransicaoEstados[i][j] = i;
     }
   }
   proximo_estado_matrizTransicaoEstados[DEFINIR_TEMPO][INCREMENTAR] = DEFINIR_TEMPO;
@@ -63,6 +68,23 @@ void iniciaMaquinaEstados()
   acao_matrizTransicaoEstados[LIBERANDO_RACAO][RACAO_LIBERADA] = A07;
 
 } // iniciaMaquinaEstados
+
+void iniciaSistema()
+{
+  iniciaMaquinaEstados();
+} // initSystem
+
+
+
+
+int obterAcao(int estado, int codigoEvento) {
+  return acao_matrizTransicaoEstados[estado][codigoEvento];
+} // obterAcao
+
+int obterProximoEstado(int estado, int codigoEvento) {
+  return proximo_estado_matrizTransicaoEstados[estado][codigoEvento];
+} // obterAcao
+
 
 
 void setup() {
