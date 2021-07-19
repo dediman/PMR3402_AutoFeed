@@ -6,7 +6,7 @@ class Ihm {
   virtual void sendMessage(char col, char row, char message) = 0;
   virtual void clear() = 0;
   virtual void setup() = 0;
-  virtual bool getButton(int button) = 0;
+  virtual bool getButton() = 0;
 };
 
 #endif // IHM_H
