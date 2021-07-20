@@ -7,6 +7,9 @@ class Timer: public Temporizacao {
   public:
   Timer();
   void begin();
+  void incrementCounter();
+  void decrementCounter();
+  void resetCounter();
   bool timeout();
 
   private:

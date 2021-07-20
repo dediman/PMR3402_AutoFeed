@@ -7,6 +7,9 @@ class Servomotor: public Atuacao {
   public:
   Servomotor();
   void setup();
+  void incrementCounter();
+  void decrementCounter();
+  void resetCounter();
   void activate();
 
   private:
