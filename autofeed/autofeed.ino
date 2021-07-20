@@ -85,6 +85,8 @@ void iniciaSistema()
   btn2.begin();
   btn3.begin();
   btn4.begin();
+  ser.setup();
+  disp.setup();
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
   pinMode(SIGNAL_PIN, OUTPUT);
@@ -195,6 +197,7 @@ void setup() {
   }
   buz.activate(TURN_ON);
   
+  ser.activate();
   Serial.println("## INICIALIZACAO COMPLETA ##");
 }
 
