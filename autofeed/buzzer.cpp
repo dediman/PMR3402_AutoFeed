@@ -10,6 +10,11 @@ int served[] = {175, 220, 262}; // F3, A3, C4 - fa maior
 
 Buzzer::Buzzer(int pino) : pin(pino) {}
 
+void Buzzer::begin()
+{
+    pinMode(pin, OUTPUT);
+}
+
 void Buzzer::activate(int mode)
 {
     if (mode == TURN_ON) {
