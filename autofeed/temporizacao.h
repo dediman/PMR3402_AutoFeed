@@ -4,6 +4,9 @@
 class Temporizacao {
   public:
   virtual void begin() = 0;
+  virtual void incrementCounter() = 0;
+  virtual void decrementCounter() = 0;
+  virtual void resetCounter() = 0;
   virtual bool timeout() = 0;
 };
 

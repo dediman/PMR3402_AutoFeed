@@ -30,11 +30,6 @@ int codigoAcao;
 int acao_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 int proximo_estado_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 
-extern typedef struct {
-  int timeCounter; //armazena tempo inserido pelo usuario
-  int feedCounter; //armazena numero de giros pelo usuario
-} StateVar;
-
 // Maquina de Estados
 void iniciaMaquinaEstados()
 {
@@ -113,23 +108,23 @@ int executarAcao(int codigoAcao, int estado)
   {
   case A01:
     if (estado == DEFINIR_TEMPO) {
-      StateVar.timeCounter += 1;
+      tmr.incrementCounter();
     }
     else {  // estado == DEFINIR_PORCOES
-      StateVar.timeCounter += 1;
+      ser.incrementCounter();
     }
     break;
   case A02:
     if (estado == DEFINIR_TEMPO) {
-      StateVar.feedCounter -= 1;
+      tmr.decrementCounter();
     }
     else {  // estado == DEFINIR_PORCOES
-      StateVar.feedCounter -= 1;
+      ser.decrementCounter();
     }
     break;
   case A03:
-    StateVar.timeCounter = 0;
-    StateVar.feedCounter = 0;
+    tmr.resetCounter();
+    ser.resetCounter();
     break;
   case A04:
     if (estado == DEFINIR_PORCOES) {
