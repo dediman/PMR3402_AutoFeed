@@ -81,12 +81,10 @@ void iniciaSistema()
   buz.begin();
   redled.begin();
   greenled.begin();
-  pinMode(GREEN_LED_PIN, OUTPUT);
-  pinMode(RED_LED_PIN, OUTPUT);
-  pinMode(PLUS_PIN, INPUT);
-  pinMode(MINUS_PIN, INPUT);
-  pinMode(ENTER_PIN, INPUT);
-  pinMode(REDEFINE_PIN, INPUT);
+  btn1.begin();
+  btn2.begin();
+  btn3.begin();
+  btn4.begin();
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
   pinMode(SIGNAL_PIN, OUTPUT);

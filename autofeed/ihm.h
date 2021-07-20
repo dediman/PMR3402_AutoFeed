@@ -3,6 +3,7 @@
 
 class Ihm {
   public:
+  virtual void begin() = 0;
   virtual bool getButton() = 0;
 };
 
