@@ -159,7 +159,7 @@ int obterEvento()
     return REDEFINIR;
   if (tmr.timeout())
     return TEMPO_ATINGIDO;
-  if (ult.getDistance() < DIST_BAIXO)
+  if (ult.getDistance() > DIST_BAIXO)
     return NIVEL_BAIXO;
 
   return retval;

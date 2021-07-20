@@ -3,7 +3,7 @@
 #include "definitions.h"
 #include "timer.h"
 
-#define TEMPO 30 // minutos
+#define TEMPO 0.5 // minutos
 
 Timer::Timer() {}
 
