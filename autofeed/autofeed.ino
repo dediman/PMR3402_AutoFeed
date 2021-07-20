@@ -58,7 +58,7 @@ void iniciaMaquinaEstados()
   acao_matrizTransicaoEstados[DEFINIR_PORCOES][REDEFINIR] = A03;
 
   proximo_estado_matrizTransicaoEstados[DEFINIR_PORCOES][CONFIRMAR] = EM_OPERACAO;
-  acao_matrizTransicaoEstados[DEFINIR_PORCOES][CONFIRMAR] = A03;
+  acao_matrizTransicaoEstados[DEFINIR_PORCOES][CONFIRMAR] = A04;
 
   proximo_estado_matrizTransicaoEstados[EM_OPERACAO][REDEFINIR] = DEFINIR_TEMPO;
   acao_matrizTransicaoEstados[EM_OPERACAO][REDEFINIR] = A03;
