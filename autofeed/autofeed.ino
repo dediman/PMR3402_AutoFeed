@@ -3,7 +3,7 @@
 #include "definitions.h"
 #include "buzzer.h"
 #include "button.h"
-#include "lcd.h"
+#include "display.h"
 #include "led.h"
 #include "servomotor.h"
 #include "timer.h"
@@ -15,7 +15,7 @@ Button btn1(PLUS_PIN);
 Button btn2(MINUS_PIN);
 Button btn3(ENTER_PIN);
 Button btn4(REDEFINE_PIN);
-Lcd lcd;
+Display disp;
 Led redled(RED_LED_PIN);
 Led greenled(GREEN_LED_PIN);
 Servomotor ser;
@@ -182,16 +182,16 @@ void setup() {
   Serial.begin(9600);
   Serial.println("Inicializando...");
   iniciaSistema();
-  lcd.setup();
-  lcd.clear();
+  disp.setup();
+  disp.clear();
 
   // mensagem inicial
   Serial.println("## BEM-VINDX ##");
   for (int i = 0; i <= 15; i++) {
-    lcd.sendMessage(0, 0, "    AutoFeed");
-    lcd.sendMessage(i, 1, "*");
+    disp.sendMessage(0, 0, "    AutoFeed");
+    disp.sendMessage(i, 1, "*");
     delay(200);
-    lcd.clear();
+    disp.clear();
   }
   buz.activate(TURN_ON);
   
