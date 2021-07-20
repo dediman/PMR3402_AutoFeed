@@ -6,11 +6,13 @@
 class Led: public Sinalizacao {
   public:
   Led(int pino);
+  void begin();
+  void activate(int mode);
   void toggleLed();
-  void buzz(int type);
 
   private:
   int pin;
+  int modo;
 };
 
 #endif // LED_H_INCLUDED

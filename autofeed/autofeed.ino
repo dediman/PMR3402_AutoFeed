@@ -10,7 +10,7 @@
 #include "ultrassonic.h"
 
 // Instanciamento de Classes
-Buzzer buz;
+Buzzer buz(BUZZER_PIN);
 Button btn1(PLUS_PIN);
 Button btn2(MINUS_PIN);
 Button btn3(ENTER_PIN);
@@ -83,7 +83,9 @@ void iniciaSistema()
 {
   iniciaMaquinaEstados();
 
-  pinMode(BUZZER_PIN, OUTPUT);
+  buz.begin();
+  redled.begin();
+  greenled.begin();
   pinMode(GREEN_LED_PIN, OUTPUT);
   pinMode(RED_LED_PIN, OUTPUT);
   pinMode(PLUS_PIN, INPUT);
@@ -133,11 +135,11 @@ int executarAcao(int codigoAcao, int estado)
     if (estado == DEFINIR_PORCOES) {
       tmr.begin();
     }
-    buz.buzz(CONFIRMED);
+    buz.activate(CONFIRMED);
     break;
   case A05:
     ser.activate();
-    buz.buzz(SERVED);
+    buz.activate(SERVED);
     break;
   case A06:
     tmr.begin();
@@ -198,7 +200,7 @@ void setup() {
     delay(200);
     lcd.clear();
   }
-  buz.buzz(TURN_ON);
+  buz.activate(TURN_ON);
   
   Serial.println("## INICIALIZACAO COMPLETA ##");
 }

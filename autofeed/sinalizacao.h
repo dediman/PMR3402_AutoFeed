@@ -3,8 +3,8 @@
 
 class Sinalizacao {
   public:
-  virtual void toggleLed() = 0;
-  virtual void buzz(int type) = 0;
+  virtual void begin() = 0;
+  virtual void activate(int mode) = 0;
 };
 
 #endif // SINALIZACAO_H_INCLUDED

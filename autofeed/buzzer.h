@@ -5,9 +5,12 @@
 
 class Buzzer: public Sinalizacao {
   public:
-  Buzzer();
-  void buzz(int type);
-  void toggleLed();
+  Buzzer(int pino);
+  void begin();
+  void activate(int mode);
+
+  private:
+  int pin;
 };
 
 #endif // BUZZER_H_INCLUDED
