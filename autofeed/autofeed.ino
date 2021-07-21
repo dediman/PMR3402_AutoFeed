@@ -27,6 +27,7 @@ int codigoEvento = NENHUM_EVENTO;
 int eventoInterno = NENHUM_EVENTO;
 int estado = DEFINIR_TEMPO;
 int codigoAcao;
+int servido = FALSE;
 int acao_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 int proximo_estado_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 
@@ -135,6 +136,11 @@ int executarAcao(int codigoAcao, int estado)
   case A05:
     ser.activate();
     buz.activate(SERVED);
+    greenled.toggleLed();
+    greenled.toggleLed();
+    greenled.toggleLed();
+    greenled.toggleLed();
+    servido = TRUE;
     break;
   case A06:
     tmr.begin();
@@ -161,6 +167,10 @@ int obterEvento()
     return REDEFINIR;
   if (tmr.timeout())
     return TEMPO_ATINGIDO;
+  if(servido) {
+    servido = FALSE;
+    return RACAO_LIBERADA;
+  }
   if (ult.getDistance() > DIST_BAIXO)
     return NIVEL_BAIXO;
 
@@ -197,7 +207,6 @@ void setup() {
   }
   buz.activate(TURN_ON);
   
-  ser.activate();
   Serial.println("## INICIALIZACAO COMPLETA ##");
 }
 
