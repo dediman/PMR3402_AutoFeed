@@ -28,7 +28,6 @@ int eventoInterno = NENHUM_EVENTO;
 int estado = DEFINIR_TEMPO;
 int codigoAcao;
 int servido = FALSE;
-unsigned long time = millis();
 int acao_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 int proximo_estado_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 
