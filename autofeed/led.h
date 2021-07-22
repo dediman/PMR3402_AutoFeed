@@ -8,7 +8,6 @@ class Led: public Sinalizacao {
   Led(int pino);
   void begin();
   void activate(int mode);
-  void toggleLed();
 
   private:
   int pin;

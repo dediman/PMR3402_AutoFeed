@@ -7,7 +7,7 @@
 Servomotor::Servomotor() {}
 Servo myservo;
 
-int feedCounter = 10; //armazena numero de giros pelo usuario
+// int feedCounter = 0; //armazena numero de giros pelo usuario
 int position = 0;
 
 void Servomotor::setup()
@@ -36,7 +36,9 @@ void Servomotor::resetCounter()
 
 void Servomotor::activate()
 {
-  if(feedCounter > 0) {
+  while(feedCounter > 0) {
+    Serial.print("feedCounter= ");
+    Serial.println(feedCounter);
     for (position = 0; position <= 250; position++) {
       myservo.write(position);  // movimenta servo ate a posicao
       delay(15);   // aguarda 15ms para o servo atingir a posicao
@@ -45,6 +47,6 @@ void Servomotor::activate()
       myservo.write(position);  // movimenta servo ate a posicao
       delay(15);   // aguarda 15ms para o servo atingir a posicao
     }
-    decrementCounter();
+    feedCounter -= 1;
   }
 }

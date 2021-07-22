@@ -28,6 +28,7 @@ int eventoInterno = NENHUM_EVENTO;
 int estado = DEFINIR_TEMPO;
 int codigoAcao;
 int servido = FALSE;
+unsigned long time = millis();
 int acao_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 int proximo_estado_matrizTransicaoEstados[NUM_ESTADOS][NUM_EVENTOS];
 
@@ -92,7 +93,7 @@ void iniciaSistema()
   pinMode(ECHO_PIN, INPUT);
   pinMode(SIGNAL_PIN, OUTPUT);
 
-  greenled.toggleLed();
+  greenled.activate(0); // led pull-down: ligado
 
 } // initSystem
 
@@ -136,17 +137,14 @@ int executarAcao(int codigoAcao, int estado)
   case A05:
     ser.activate();
     buz.activate(SERVED);
-    greenled.toggleLed();
-    greenled.toggleLed();
-    greenled.toggleLed();
-    greenled.toggleLed();
-    servido = TRUE;
+    if (ser.feedCounter == 0)
+      servido = TRUE;
     break;
   case A06:
     tmr.begin();
     break;
   case A07:
-    redled.toggleLed();
+    redled.activate(1);
     break;
   } // switch
 
@@ -171,8 +169,14 @@ int obterEvento()
     servido = FALSE;
     return RACAO_LIBERADA;
   }
-  if (ult.getDistance() > DIST_BAIXO)
+  if(ult.getDistance() > DIST_BAIXO)
     return NIVEL_BAIXO;
+  else
+    redled.activate(0);
+
+  // if(ult.lowLevel(time))
+  //   time = 0;
+  //   return NIVEL_BAIXO;
 
   return retval;
 
@@ -206,7 +210,7 @@ void setup() {
     disp.clear();
   }
   buz.activate(TURN_ON);
-  
+
   Serial.println("## INICIALIZACAO COMPLETA ##");
 }
 

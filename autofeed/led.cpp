@@ -13,9 +13,3 @@ void Led::activate(int mode)
    modo = mode;
    digitalWrite(pin, modo);
 }
-
-void Led::toggleLed()
-{
-   modo = !modo;
-   activate(modo);
-}

@@ -39,8 +39,8 @@
 #define SERVED      2
 
 // LED
-#define GREEN_LED_PIN   12
-#define RED_LED_PIN     13
+#define GREEN_LED_PIN   13
+#define RED_LED_PIN     12
 
 // LCD
 #define RS 2

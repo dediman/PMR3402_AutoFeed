@@ -7,6 +7,7 @@ class Ultrassonic: public Sensoriamento {
   public:
   Ultrassonic();
   int getDistance();
+  bool lowLevel(unsigned long time);
 
   private:
   long duration;

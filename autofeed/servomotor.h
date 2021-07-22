@@ -11,6 +11,7 @@ class Servomotor: public Atuacao {
   void decrementCounter();
   void resetCounter();
   void activate();
+  int feedCounter = 0;
 
   private:
   int position;

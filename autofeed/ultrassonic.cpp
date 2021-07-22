@@ -25,3 +25,10 @@ int Ultrassonic::getDistance()
   // Retorna distancia
   return distance;
 }
+
+bool Ultrassonic::lowLevel(unsigned long time)
+{
+  if (time > 5000 && getDistance() > DIST_BAIXO)
+    return TRUE;
+  return FALSE;
+}

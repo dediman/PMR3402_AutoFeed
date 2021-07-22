@@ -3,7 +3,7 @@
 #include "definitions.h"
 #include "timer.h"
 
-#define TEMPO 0.5 // minutos
+#define TEMPO 10000 // 10s
 
 Timer::Timer() {}
 
@@ -26,7 +26,7 @@ void Timer::resetCounter()
 
 void Timer::begin()
 {
-    startTime = millis();
+    this->startTime = millis();
 }
 
 bool Timer::timeout()
