@@ -4,12 +4,6 @@
 
 Button::Button(int pino) : pin(pino) {}
 
-int buttonState;
-int lastButtonState = 0;
-int reading;
-unsigned long lastDebounceTime = 0;
-unsigned long debounceDelay = 50;
-
 void Button::begin()
 {
     pinMode(pin, OUTPUT);

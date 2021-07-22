@@ -8,6 +8,11 @@ class Button: public Ihm {
   Button(int pino);
   void begin();
   bool getButton();
+  int buttonState;
+  int lastButtonState = 0;
+  int reading = 0;
+  unsigned long lastDebounceTime = 0;
+  unsigned long debounceDelay = 50;
 
   private:
   int pin;
